@@ -1,6 +1,6 @@
 $(function(){
   const fruits =  ['banana', 'grapes', 'pear', 'peach', 'lemon', 'greenApple', 'redApple', 'orange', 'strawberry', 'raspberry', 'plumb', 'watermelon', 'pineapple', 'blueberry',
-'cherry',''];
+    'cherry',''];
 
   // create a randomly generated 2-Dimensional array with integers----
   function createGround(width, height){
@@ -11,7 +11,7 @@ $(function(){
         $result[i][j] = Math.floor(Math.random() * 15) + 0;
       }
     }
-    console.log($result)
+    console.log($result);
     return $result;
   }
 
@@ -27,8 +27,6 @@ $(function(){
     });
   }
 
-  // console.log( $ground[j]);
-
   function buildCell(cell, i, j){
     var $elem = $(`<div class="basetile" id="cell_${i}_${j}" data-i='${i}' data-j='${j}'/>`);
     $elem.addClass(fruits[cell]);
@@ -37,30 +35,35 @@ $(function(){
 
     var $counter = 20;
     $elem.click(function(){
-      $counter += 10;
-      if (cell === $fruitSelected) {
+      console.log($elem);
+      if ($elem.hasClass(fruits[$fruitSelected]) === $speechBubbleFruit.hasClass(fruits[$fruitSelected])) {
+        $counter += 10;
         $elem.removeClass(fruits[cell]);
-        // $('.player1').css('width',`${$counter}`+'px');
+        $('.player1').css('width',`${$counter}`+'px');
+
         moveColumnDown(parseInt($(this).data('i')), parseInt($(this).data('j')));
       }
       if ($counter >= 180){
         $('.player1').css('width', '180px');
       }
-      // else {
-      //   console.log('bye');
-      // }
     });
 
   }
   mapBuilder();
 
+  function newFruit(){
+
+  }
+  newFruit();
+
+
   function moveColumnDown(i,j){
     for(let x = (i-1); x>= 0; x--){
       const $cell = $(`#cell_${x}_${j}`);
-      console.log($cell.data('fruit'));
       const $emptyCell = $(`#cell_${(x+1)}_${j}`);
-      $cell.removeClass($cell.data('fruit'));
       $emptyCell.addClass($cell.data('fruit'));
+      $cell.removeClass($cell.data('fruit'));
+      console.log($cell.data('fruit'));
     }
   }
 
