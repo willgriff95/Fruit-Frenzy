@@ -103,6 +103,7 @@ background-repeat: no-repeat;
 .redApple {
 background-image: url('../images/redApple.svg');
 background-position: center;
+background-repeat: no-repeat;
 
 }
 .orange {

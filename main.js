@@ -1,6 +1,6 @@
 $(function(){
   const fruits =  ['banana', 'grapes', 'pear', 'peach', 'lemon', 'greenApple', 'redApple', 'orange', 'strawberry', 'raspberry', 'plumb', 'watermelon', 'pineapple', 'blueberry',
-    'cherry',''];
+    'cherry'];
 
   // create a randomly generated 2-Dimensional array with integers----
   function createGround(width, height){
@@ -39,8 +39,9 @@ $(function(){
       if ($elem.hasClass(fruits[$fruitSelected]) === $speechBubbleFruit.hasClass(fruits[$fruitSelected])) {
         $counter += 10;
         $elem.removeClass(fruits[cell]);
+        const $topColumn = $(`#cell_${((x=0))}_${j}`);
+        $topColumn.addClass(fruits[Math.floor(Math.random() * 14) + 0]);
         $('.player1').css('width',`${$counter}`+'px');
-
         moveColumnDown(parseInt($(this).data('i')), parseInt($(this).data('j')));
       }
       if ($counter >= 180){
@@ -51,19 +52,24 @@ $(function(){
   }
   mapBuilder();
 
-  function newFruit(){
+
+  function newColumnFruit(){
 
   }
-  newFruit();
+  newColumnFruit();
 
 
   function moveColumnDown(i,j){
     for(let x = (i-1); x>= 0; x--){
       const $cell = $(`#cell_${x}_${j}`);
       const $emptyCell = $(`#cell_${(x+1)}_${j}`);
-      $emptyCell.addClass($cell.data('fruit'));
+      console.log(`moving ${$cell.data('fruit')}(#cell_${x}_${j}) into #cell_${(x+1)}_${j}`)
+      console.log($emptyCell);
+      // $emptyCell.addClass(fruits[$fruitSelected]);
       $cell.removeClass($cell.data('fruit'));
-      console.log($cell.data('fruit'));
+      $emptyCell.addClass($cell.data('fruit'));
+      $emptyCell.data('fruit', $cell.data('fruit'));
+      // console.log($cell.data('fruit'));
     }
   }
 
@@ -82,12 +88,11 @@ $(function(){
 
   function displayFruit(){
     $speechBubbleFruit.addClass(fruits[$fruitSelected]);
-    // const $cell = $(`#cell_${x}_${j}`);
-    // console.log($cell.data('fruit'));
   }
 
   displayFruit();
 
+// TIMED ANIMATIONS
   $(document).ready(function () {
     setTimeout(function(){
       $('#ready').fadeIn(100);
@@ -114,7 +119,7 @@ $(function(){
       $('.fruitSpeech').fadeIn(100);
     }, 600);
 
-
+// STOPWATCH
     setTimeout(function(){
       function startTimer(duration, display) {
         var timer = duration, minutes, seconds;

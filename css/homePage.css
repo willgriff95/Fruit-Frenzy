@@ -117,14 +117,18 @@ header img{
 }
 
 .thames {
-  float: right;
   width: 100%;
   height: 23.5%;
   background-color: #99ccff;
   position: absolute;
   z-index: 90;
-  bottom: 0;
-
+  bottom: 0px;
+}
+.thames img{
+  position: absolute;
+  bottom: 20%;
+  width: 100%;
+  height: 100%;
 }
 
 .popup-overlay{
@@ -135,9 +139,7 @@ header img{
   width: 60%;
   margin: 0 auto;
   text-align: center;
-  background-color: rgba(255, 255, 255, 0.4);
   border-radius: 10px;
-  border: solid green 4px;
   z-index: 1000;
   position: absolute;
 }
@@ -145,6 +147,9 @@ header img{
   /*displays pop-up when "active" class is present*/
   visibility:visible;
   text-align:center;
+  height: 90%;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .popup-content {
@@ -157,6 +162,9 @@ header img{
   /*Shows pop-up content when "active" class is present */
   visibility:visible;
   height: 80%;
+}
+.popup-content img {
+height: 100%;
 }
 
 button{
