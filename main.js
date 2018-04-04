@@ -38,11 +38,15 @@ $(function(){
       console.log($elem);
       if ($elem.hasClass(fruits[$fruitSelected]) === $speechBubbleFruit.hasClass(fruits[$fruitSelected])) {
         $counter += 10;
-        $elem.removeClass(fruits[cell]);
-        const $topColumn = $(`#cell_${((x=0))}_${j}`);
-        $topColumn.addClass(fruits[Math.floor(Math.random() * 14) + 0]);
         $('.player1').css('width',`${$counter}`+'px');
         moveColumnDown(parseInt($(this).data('i')), parseInt($(this).data('j')));
+        const $topColumn = $(`#cell_${0}_${j}`);
+        var $randomNewFruit = fruits[Math.floor(Math.random() * 14) + 0];
+        $topColumn.removeClass(fruits[cell]);
+        $topColumn.addClass($randomNewFruit);
+        console.log($randomNewFruit);
+        $topColumn.data('fruit', $randomNewFruit);
+        $elem.removeClass(fruits[cell]);
       }
       if ($counter >= 180){
         $('.player1').css('width', '180px');
