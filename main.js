@@ -87,6 +87,16 @@ $(function(){
     }
   }
 
+  function doSomething() {}
+
+  (function loop() {
+    var rand = Math.round(Math.random() * (3000 - 500)) + 500;
+    setTimeout(function() {
+      doSomething();
+      loop();
+    }, rand);
+  }());
+  
   // Generate a random value from the 2-dimensional array
   function getRandomLine() {
     return Math.floor(Math.random() * (8 - 0 + 1)) + 0;
