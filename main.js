@@ -32,35 +32,45 @@ $(function(){
     $elem.addClass(fruits[cell]);
     $elem.data('fruit', fruits[cell]);
     $mapWrap.append($elem);
+    var $player1Score = $('.player1');
 
-    var $counter = 20;
     $elem.click(function(){
-      console.log($elem);
+      console.log(`the first fruit selected is a ${$elem.data('fruit')}`);
       if ($elem.hasClass(fruits[$fruitSelected]) === $speechBubbleFruit.hasClass(fruits[$fruitSelected])) {
-        $counter += 10;
-        $('.player1').css('width',`${$counter}`+'px');
+        $player1Score.css('background', 'green');
+        setTimeout(function(){
+          $('#plus10').fadeIn(100);
+        }, 0);
+        setTimeout(function(){
+          $('#plus10').fadeOut(100);
+        }, 500);
         moveColumnDown(parseInt($(this).data('i')), parseInt($(this).data('j')));
         const $topColumn = $(`#cell_${0}_${j}`);
+        console.log(`the fruit at the top of the column before new fruit added is a ${$topColumn.data('fruit')}`)
         var $randomNewFruit = fruits[Math.floor(Math.random() * 14) + 0];
         $topColumn.removeClass(fruits[cell]);
         $topColumn.addClass($randomNewFruit);
-        console.log($randomNewFruit);
+        console.log(`the random fruit generated to be put in at the top column is a ${$randomNewFruit}`);
         $topColumn.data('fruit', $randomNewFruit);
         $elem.removeClass(fruits[cell]);
+      } else {
+        $player1Score.css('background', 'red');
+        setTimeout(function(){
+          $('#minus10').fadeIn(100);
+        }, 0);
+        setTimeout(function(){
+          $('#minus10').fadeOut(100);
+        }, 500);
+        console.log('-------new selection--------')
       }
-      if ($counter >= 180){
-        $('.player1').css('width', '180px');
-      }
+
+      // if ($counter >= 180){
+      //   $player1Score.css('width', '180px');
+      // }
     });
 
   }
   mapBuilder();
-
-
-  function newColumnFruit(){
-
-  }
-  newColumnFruit();
 
 
   function moveColumnDown(i,j){
@@ -68,9 +78,9 @@ $(function(){
       const $cell = $(`#cell_${x}_${j}`);
       const $emptyCell = $(`#cell_${(x+1)}_${j}`);
       console.log(`moving ${$cell.data('fruit')}(#cell_${x}_${j}) into #cell_${(x+1)}_${j}`)
-      console.log($emptyCell);
+      // console.log($emptyCell);
       // $emptyCell.addClass(fruits[$fruitSelected]);
-      $cell.removeClass($cell.data('fruit'));
+      $cell.attr('class', 'basetile');
       $emptyCell.addClass($cell.data('fruit'));
       $emptyCell.data('fruit', $cell.data('fruit'));
       // console.log($cell.data('fruit'));
@@ -92,6 +102,7 @@ $(function(){
 
   function displayFruit(){
     $speechBubbleFruit.addClass(fruits[$fruitSelected]);
+    console.log(`the fruit that you have to collect is ${fruits[$fruitSelected]}`);
   }
 
   displayFruit();
