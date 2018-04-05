@@ -222,9 +222,9 @@ background-repeat: no-repeat;
 }
 
 .board{
-  width: 30%;
-  height: 50%;
-  left: 0;
+  width: 20%;
+  height: 45%;
+  left: 3%;
   top: 2%;
   position: absolute;
   z-index: 1000;
@@ -305,16 +305,19 @@ background-repeat: no-repeat;
 
 
 .progress-bar {
-  width: 620px;
-  height: 30px;
-  border: 1px solid #000;
-  border-radius: 15px;
+  top: 53.5%;
+  left: 18%;
+  position: relative;
+  width: 62.5%;
+  height: 5.5%;
+  border: 1px solid brown;
+  border-radius: 5px;
 }
 
 .progress {
   height: 100%;
-  border-radius: 15px;
-  background: #62f4fc;
+  border-radius: 5px;
+  background: #feb501;
   -webkit-transition: width .8s;
   transition: width .8s;
 }

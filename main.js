@@ -4,7 +4,7 @@ $(function(){
   // VARIABLES
   var $ground = createGround(8, 9);
   var $mapWrap = $('#board');
-
+  let progWidth = 0;
   // --------------------GENERATING THE NUMBERS FOR THE ARRAY--------------------
 
   function createGround(width, height){
@@ -19,7 +19,6 @@ $(function(){
         $result[i][j] = Math.floor(Math.random() * 15) + 0;
       }
     }
-    console.log($result);
     return $result;
   }
 
@@ -74,6 +73,9 @@ $(function(){
 
     // ---------------MAKING CONDITIONS IF A ELEMENT IS SELECTED----------------
 
+    const progress = document.querySelector('.progress');
+    const buttons = document.getElementsByTagName('button');
+
     $elem.click(function(){
       if($elem.hasClass(fruits[$fruitSelected]) === $speechBubbleFruit.hasClass(fruits[$fruitSelected])){
 
@@ -93,12 +95,21 @@ $(function(){
           $(`#cell_${(index)}_${j}`).attr('class', `basetile ${fruit}`);
         });
 
-        let fruitname = fruits[Math.floor(Math.random() * 15) + 0];
+        const fruitname = fruits[Math.floor(Math.random() * 15) + 0];
 
         $topColumn = $(`#cell_${0}_${j}`);
         $topColumn.data('fruit', fruitname);
         $topColumn.attr('class', `basetile ${fruitname}`);
-        
+
+        progWidth += 3;
+        console.log(progWidth)
+        // Animate progress
+        if (progWidth > 100) return false;
+        progress.style.width = `${progWidth}%`;
+        if (progWidth === 100) {
+          alert('You have reached the target!');
+        }
+
         // ANIMATIONS FOR CORRECT FRUIT SELECTED
         setTimeout(function(){
           $('#plus10').fadeIn(100);
@@ -106,12 +117,24 @@ $(function(){
         setTimeout(function(){
           $('#plus10').fadeOut(100);
         }, 300);
+      } else {
+        progWidth -= 3;
+        if (progWidth > 100) return false;
+        progress.style.width = `${progWidth}%`;
+        // ANIMATIONS FOR INCORRECT FRUIT SELECTED
+        setTimeout(function(){
+          $('#minus10').fadeIn(100);
+        }, 0);
+        setTimeout(function(){
+          $('#minus10').fadeOut(100);
+        }, 500);
+
       }
       //generate fruit at the top,
       // make sure to assign the class attribute using .attr('basetile FRUITNAME')
       // AND
       // assign the data-fruit attribute using .data('fruit', FRUITNAME);
-    })
+    });
 
 
     // $elem.click(function(){
@@ -138,13 +161,7 @@ $(function(){
     //     $counter = $counter + 10;
     //     $player1Score.css('background', 'green');
     //   } else if ($elem.hasClass(fruits[$fruitSelected]) !== $speechBubbleFruit.hasClass(fruits[$fruitSelected])) {
-    //     // ANIMATIONS FOR INCORRECT FRUIT SELECTED
-    //     setTimeout(function(){
-    //       $('#minus10').fadeIn(100);
-    //     }, 0);
-    //     setTimeout(function(){
-    //       $('#minus10').fadeOut(100);
-    //     }, 500);
+
     //     // REDUCING THE PROGRESSBAR
     //     $counter = $counter - 10;
     //     $player1Score.css('background', 'red');
@@ -157,6 +174,15 @@ $(function(){
     // });
 
   }
+
+  // var $fruitSelected = fruits[Math.floor(Math.random() * 15) + 0];
+  // var $speechBubbleFruit = $('.fruitSpeech');
+  //
+  // function newFruitSpeechBubble() {
+  //   $speechBubbleFruit.data('fruit', $fruitSelected);
+  //   $speechBubbleFruit.attr('class', $fruitSelected);
+  //   console.log(`the fruit that you have to collect is ${fruits[$fruitSelected]}`);
+  // }
 
   // ------------LOOP THAT RANDOMLY GENERATES A NEW FRUIT FOR SELECION-----------
 
@@ -174,6 +200,7 @@ $(function(){
   var $fruitSelected = $ground[$lineIndex][$cellIndex];
   var $speechBubbleFruit = $('.fruitSpeech');
   $speechBubbleFruit.addClass(fruits[$fruitSelected]);
+
 
   function newFruitSpeechBubble() {
     $speechBubbleFruit.removeClass(fruits[$fruitSelected]);
@@ -217,69 +244,49 @@ $(function(){
 
     // -----------------------------STOPWATCH------------------------------------
 
-    setTimeout(function(){
-      function startTimer(duration, display) {
-        var timer = duration, minutes, seconds;
-        setInterval(function () {
-          minutes = parseInt(timer / 60, 10);
-          seconds = parseInt(timer % 60, 10);
+    // setTimeout(function(){
+    function startTimer(duration, display) {
+      var timer = duration, minutes, seconds;
+      setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
 
-          minutes = minutes < 10 ? '0' + minutes : minutes;
-          seconds = seconds < 10 ? '0' + seconds : seconds;
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        seconds = seconds < 10 ? '0' + seconds : seconds;
 
-          display.text(minutes + ':' + seconds);
+        display.text(minutes + ':' + seconds);
 
-          if (--timer < 0) {
-            timer = duration;
-          }
-        }, 1000);
-      }
+        if (--timer < 0) {
+          timer = duration;
+        }
+      }, 1000);
+    }
 
-      jQuery(function ($) {
-        var oneMinute = 60 * 1,
-          display = $('.countdown');
-        startTimer(oneMinute, display);
-      });
-    }, 600);
-  });
+    // jQuery(function ($) {
+    var oneMinute = 60 * 1,
+      display = $('.countdown');
+    startTimer(oneMinute, display);
+    // });
+  }, 600);
+  // });
+
   // PROGRESS BAR
 
-  // const progress = document.querySelector('.progress');
-  // const figure = document.querySelector('.amount p');
-  // const buttons = document.getElementsByTagName('button');
-  // const balance = document.getElementById('remaining');
-  // const balanceCont = document.querySelector('.balance-container p');
-  //
+
+
   // const btns = [].slice.apply(buttons);
-  //
+
   // btns.forEach(button => {
   //   button.addEventListener('click', updateProgress);
   // });
-  //
-  // let progWidth = 25;
-  //
-  // // Animate progress
-  // function updateProgress(e) {
-  //   if (progWidth + parseInt(e.target.id) > 100) return false;
-  //   progWidth += parseInt(e.target.id);
-  //   progress.style.width = `${progWidth}%`;
-  //   figure.style.width = `${progWidth+1}%`;
-  //   figure.innerHTML = `£${progWidth}`;
-  //   if (progWidth === 100) {
-  //     balanceCont.innerHTML = 'You have reached the target!';
-  //   } else {
-  //     balance.innerHTML = `${100 - progWidth}`;
-  //   }
-  // }
-  //
-  // // Animate starting progress on page load
+
+
+
+  // Animate starting progress on page load
   // setTimeout(() => {
   //   progress.classList.remove('progress-load');
-  //   //figure.classList.remove('progress-load');
   //   progress.style.width = `${progWidth}%`;
   //   figure.style.width = `${progWidth+1}%`;
-  //   figure.innerHTML = `£${progWidth}`;
-  //   balance.innerHTML = `${100 - progWidth}`;
   // }, 100);
 
 });
