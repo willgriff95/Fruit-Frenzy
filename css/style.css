@@ -222,9 +222,15 @@ background-repeat: no-repeat;
 }
 
 .board{
-  width: 100%;
+  width: 30%;
+  height: 50%;
+  left: 0;
+  top: 2%;
   position: absolute;
   z-index: 1000;
+  background-image: url(../images/scoreboard.svg);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .scoreboard {
   position: absolute;
@@ -238,13 +244,21 @@ background-repeat: no-repeat;
 }
 
 .player1 {
-  width: 300px;
-  top: 25%;
-  left: 5%;
+  width: 44%;
+  border-radius: 5px;
+  top: 52.5%;
+  left: 27%;
   height: 6%;
-  position: absolute;
+  position: relative;
   z-index: 989;
-  background-color: #ffcc00;
+  border: solid brown 1px;
+  background-color: lightblue;
+}
+
+.progressBar{
+  border: solid brown 1px;
+  background-color: lightblue;
+
 }
 .player2 {
   width: 0px;
@@ -286,4 +300,25 @@ background-repeat: no-repeat;
   100%{
     width: 90px;
   }
+}
+
+
+
+.progress-bar {
+  width: 620px;
+  height: 30px;
+  border: 1px solid #000;
+  border-radius: 15px;
+}
+
+.progress {
+  height: 100%;
+  border-radius: 15px;
+  background: #62f4fc;
+  -webkit-transition: width .8s;
+  transition: width .8s;
+}
+
+.progress-load {
+  width: 0%;
 }
