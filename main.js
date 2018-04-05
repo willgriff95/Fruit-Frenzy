@@ -75,23 +75,39 @@ $(function(){
     // ---------------MAKING CONDITIONS IF A ELEMENT IS SELECTED----------------
 
     $elem.click(function(){
-      $(this).attr('class', 'basetile').data('fruit', null);
-      const columnData = []
-      const i = $(this).data('i');
-      const j = $(this).data('j');
-      for(let index = (i-1); index >= 0; index--){
-        columnData.push($(`#cell_${(index)}_${j}`).data('fruit'));
+      if($elem.hasClass(fruits[$fruitSelected]) === $speechBubbleFruit.hasClass(fruits[$fruitSelected])){
+
+        $(this).attr('class', 'basetile').data('fruit', null);
+        const columnData = []
+        const i = $(this).data('i');
+        const j = $(this).data('j');
+        for(let index = (i-1); index >= 0; index--){
+          columnData.push($(`#cell_${(index)}_${j}`).data('fruit'));
+        }
+        const columnDataReversed = columnData.reverse();
+        columnDataReversed.unshift(null);
+
+        $(columnDataReversed).each(function(index, fruit){
+          console.log(index, fruit);
+          $(`#cell_${(index)}_${j}`).data('fruit', fruit);
+          $(`#cell_${(index)}_${j}`).attr('class', `basetile ${fruit}`);
+        });
+
+        let fruitname = fruits[Math.floor(Math.random() * 15) + 0];
+
+        $topColumn = $(`#cell_${0}_${j}`);
+        $topColumn.data('fruit', fruitname);
+        $topColumn.attr('class', `basetile ${fruitname}`);
+        
+        // ANIMATIONS FOR CORRECT FRUIT SELECTED
+        setTimeout(function(){
+          $('#plus10').fadeIn(100);
+        }, 0);
+        setTimeout(function(){
+          $('#plus10').fadeOut(100);
+        }, 300);
       }
-      const columnDataReversed = columnData.reverse();
-      columnDataReversed.unshift(null);
-
-      $(columnDataReversed).each(function(index, fruit){
-        console.log(index, fruit);
-        $(`#cell_${(index)}_${j}`).data('fruit', fruit);
-        $(`#cell_${(index)}_${j}`).attr('class', `basetile ${fruit}`);
-      });
-
-      //generate fruit at the top, 
+      //generate fruit at the top,
       // make sure to assign the class attribute using .attr('basetile FRUITNAME')
       // AND
       // assign the data-fruit attribute using .data('fruit', FRUITNAME);
@@ -107,6 +123,8 @@ $(function(){
     //     $elem.attr('class', 'basetile');
     //     // SET THE POSITION OF THE TOP ELEMENT
     //     $topColumn = $(`#cell_${0}_${j}`);
+
+
     //     // SHOW POSITION OF THE NEW FRUIT ADDED
     //     console.log(`the fruit at the top of the column before new fruit added is a ${$topColumn.data('fruit')}`);
     //     $randomNewFruit = fruits[Math.floor(Math.random() * 14) + 0];
@@ -115,13 +133,7 @@ $(function(){
     //     console.log(`the random fruit generated to be put in at the top column is a ${$randomNewFruit}`);
     //     // $topColumn.data('fruit', $randomNewFruit);
     //
-    //     // ANIMATIONS FOR CORRECT FRUIT SELECTED
-    //     setTimeout(function(){
-    //       $('#plus10').fadeIn(100);
-    //     }, 0);
-    //     setTimeout(function(){
-    //       $('#plus10').fadeOut(100);
-    //     }, 300);
+    //
     //     // INCREASING THE PROGRESSBAR
     //     $counter = $counter + 10;
     //     $player1Score.css('background', 'green');
