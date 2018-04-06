@@ -1,4 +1,5 @@
 $(function(){
+  // ------------------ARRAY WITH THE VARIABLES FOR THE CLASSES------------------
   const fruits =  ['banana', 'grapes', 'pear', 'peach', 'lemon', 'greenApple', 'redApple', 'orange', 'strawberry', 'raspberry', 'plumb', 'watermelon', 'pineapple', 'blueberry',
     'cherry'];
   // VARIABLES
@@ -7,15 +8,15 @@ $(function(){
   let progWidth = 0;
   // --------------------GENERATING THE NUMBERS FOR THE ARRAY--------------------
 
-  function createGround(width, height){
+  function createGround(height, width){
     // EMPTY WIDTH ARRAY
     var $result = [];
-    // MAKING THE WIDTH
-    for (var i = 0 ; i <= width; i++) {
+    // MAKING THE HEIGHT
+    for (var i = 0 ; i <= height; i++) {
       // EMPTY HEIGHT ARRAY
       $result[i] = [];
-      // MAKING THE HEIGHT
-      for (var j = 0; j <= height; j++) {
+      // MAKING THE WIDTH
+      for (var j = 0; j <= width; j++) {
         $result[i][j] = Math.floor(Math.random() * 15) + 0;
       }
     }
@@ -33,25 +34,7 @@ $(function(){
   }
   mapBuilder();
 
-  // ----------------MOVING THE ELEMENTS IN A COLUMN DOWN ONE CELL---------------
-
-  function moveColumnDown(i,j){
-    for(let x = (i-1); x>= 0; x--){
-      // THE CELL THAT IS SELECTED
-      const $cell = $(`#cell_${x}_${j}`);
-      // WHERE THIS CELL IS BEING MOVED TO
-      const $emptyCell = $(`#cell_${(x+1)}_${j}`);
-      // SETTING THE CLASS OF THE $CELL ELEMENT TO BASETILE
-      $cell.attr('class', 'basetile');
-      // ADD A CLASS OF A RANDOM FRUIT TO THE EMPTY CELL
-      $emptyCell.addClass($cell.data('fruit'));
-      // RANDOMLY ADDING A VALUE OF A NEW FRUIT TO EMPTY CELL
-      // $emptyCell.data('fruit', $cell.data('fruit'));
-      console.log(`moving ${$cell.data('fruit')}(#cell_${x}_${j}) into #cell_${(x+1)}_${j}`);
-    }
-  }
-
-  // --------------------BUILDING THE 2D ARRAY WITH CLASSES----------------------
+  // --------------------ADDING CLASSES TO THE 2D--------------------------------
 
   function buildCell(cell, i, j){
     var $elem = $(`<div class="basetile" id="cell_${i}_${j}" data-i='${i}' data-j='${j}'/>`);
@@ -61,7 +44,6 @@ $(function(){
     $mapWrap.append($elem);
     // ADDING FRUIT CLASSES TO THE VALUES IN THE 2-DIMENSIONAL ARRAY IN THE BOARD
     $elem.addClass(fruits[cell]);
-
     $elem.data('fruit', fruits[cell]);
     // SETTING THE COUNTER TO 0
     var $counter = 100;
@@ -73,16 +55,31 @@ $(function(){
 
     // ---------------MAKING CONDITIONS IF A ELEMENT IS SELECTED----------------
 
+    // INCREASE PROGRESSBAR WIDTH
     const progress = document.querySelector('.progress');
-    const buttons = document.getElementsByTagName('button');
+    // PLAY AUDIO CLIP
+    var obj = document.createElement('audio');
+    obj.src='./audio/pop.mp3';
+    obj.volume=0.10;
+    obj.autoPlay=false;
+    obj.preLoad=true;
+    // PLAY AUDIO CLIP
+    var obj2 = document.createElement('audio');
+    obj2.src='./audio/wrong2.wav';
+    obj2.volume=0.10;
+    obj2.autoPlay=false;
+    obj2.preLoad=true;
 
     $elem.click(function(){
       if($elem.hasClass(fruits[$fruitSelected]) === $speechBubbleFruit.hasClass(fruits[$fruitSelected])){
-
+        obj.play();
+        // ------WHEN CLICKED GIVE THE ELEMENT THE CLASS OF BASETILE ONLY--------
         $(this).attr('class', 'basetile').data('fruit', null);
         const columnData = []
         const i = $(this).data('i');
         const j = $(this).data('j');
+
+        // -------------MOVING THE ELEMENTS IN A COLUMN DOWN ONE CELL------------
         for(let index = (i-1); index >= 0; index--){
           columnData.push($(`#cell_${(index)}_${j}`).data('fruit'));
         }
@@ -95,99 +92,78 @@ $(function(){
           $(`#cell_${(index)}_${j}`).attr('class', `basetile ${fruit}`);
         });
 
+        // RANDOMLY GENERATE A FRUIT AT POSITION OF EMPTY CELL AT TOP OF COLUMN
         const fruitname = fruits[Math.floor(Math.random() * 15) + 0];
-
         $topColumn = $(`#cell_${0}_${j}`);
         $topColumn.data('fruit', fruitname);
         $topColumn.attr('class', `basetile ${fruitname}`);
 
+        // -------------------INCREASE THE PROGRESSBAR WIDTH---------------------
         progWidth += 3;
         console.log(progWidth)
-        // Animate progress
         if (progWidth > 100) return false;
         progress.style.width = `${progWidth}%`;
-        if (progWidth === 100) {
-          alert('You have reached the target!');
-        }
 
-        // ANIMATIONS FOR CORRECT FRUIT SELECTED
+        // ---------------ANIMATIONS FOR CORRECT FRUIT SELECTED------------------
         setTimeout(function(){
-          $('#plus10').fadeIn(100);
+          $('.progress').css('background-color', '#339900');
         }, 0);
         setTimeout(function(){
-          $('#plus10').fadeOut(100);
-        }, 300);
+          $('.progress').css('background-color', '#feb501');
+        }, 200);
+        setTimeout(function(){
+          $('#plus10').show();
+        }, 0);
+        setTimeout(function(){
+          $('#plus10').hide();
+        }, 100);
       } else {
+        obj2.play();
+
+        // -------------------DECREASE THE PROGRESSBAR WIDTH---------------------
         progWidth -= 3;
         if (progWidth > 100) return false;
         progress.style.width = `${progWidth}%`;
-        // ANIMATIONS FOR INCORRECT FRUIT SELECTED
+
+        // ---------------ANIMATIONS FOR INCORRECT FRUIT SELECTED----------------
         setTimeout(function(){
-          $('#minus10').fadeIn(100);
+          $('.progress').css('background-color', '#cc0000');
         }, 0);
         setTimeout(function(){
-          $('#minus10').fadeOut(100);
-        }, 500);
+          $('.progress').css('background-color', '#feb501');
+        }, 200);
+        setTimeout(function(){
+          $('#minus10').show();
+        }, 0);
+        setTimeout(function(){
+          $('#minus10').hide();
+        }, 100);
 
       }
-      //generate fruit at the top,
-      // make sure to assign the class attribute using .attr('basetile FRUITNAME')
-      // AND
-      // assign the data-fruit attribute using .data('fruit', FRUITNAME);
     });
 
-
-    // $elem.click(function(){
-    //   console.log(`the first fruit selected is a ${$elem.data('fruit')}`);
-    //   if ($elem.hasClass(fruits[$fruitSelected]) === $speechBubbleFruit.hasClass(fruits[$fruitSelected])) {
-    //     // MOVE WHOLE COLUMN DOWN
-    //     moveColumnDown(parseInt($(this).data('i')), parseInt($(this).data('j')));
-    //     // REMOVE FRUIT FROM THE SELECTED ELEMENT
-    //     $elem.attr('class', 'basetile');
-    //     // SET THE POSITION OF THE TOP ELEMENT
-    //     $topColumn = $(`#cell_${0}_${j}`);
-
-
-    //     // SHOW POSITION OF THE NEW FRUIT ADDED
-    //     console.log(`the fruit at the top of the column before new fruit added is a ${$topColumn.data('fruit')}`);
-    //     $randomNewFruit = fruits[Math.floor(Math.random() * 14) + 0];
-    //     $topColumn.removeClass(fruits[cell]);
-    //     $topColumn.addClass($randomNewFruit);
-    //     console.log(`the random fruit generated to be put in at the top column is a ${$randomNewFruit}`);
-    //     // $topColumn.data('fruit', $randomNewFruit);
-    //
-    //
-    //     // INCREASING THE PROGRESSBAR
-    //     $counter = $counter + 10;
-    //     $player1Score.css('background', 'green');
-    //   } else if ($elem.hasClass(fruits[$fruitSelected]) !== $speechBubbleFruit.hasClass(fruits[$fruitSelected])) {
-
-    //     // REDUCING THE PROGRESSBAR
-    //     $counter = $counter - 10;
-    //     $player1Score.css('background', 'red');
-    //     console.log('-------new selection--------');
-    //   }
-    //
-    //   // if ($counter >= 180){
-    //   //   $player1Score.css('width', '180px');
-    //   // }
-    // });
-
   }
-
-  // var $fruitSelected = fruits[Math.floor(Math.random() * 15) + 0];
-  // var $speechBubbleFruit = $('.fruitSpeech');
-  //
-  // function newFruitSpeechBubble() {
-  //   $speechBubbleFruit.data('fruit', $fruitSelected);
-  //   $speechBubbleFruit.attr('class', $fruitSelected);
-  //   console.log(`the fruit that you have to collect is ${fruits[$fruitSelected]}`);
+  // ----------------MOVING THE ELEMENTS IN A COLUMN DOWN ONE CELL---------------
+  // function moveColumnDown(i,j){
+  //   for(let x = (i-1); x>= 0; x--){
+  //     // THE CELL THAT IS SELECTED
+  //     const $cell = $(`#cell_${x}_${j}`);
+  //     // WHERE THIS CELL IS BEING MOVED TO
+  //     const $emptyCell = $(`#cell_${(x+1)}_${j}`);
+  //     // SETTING THE CLASS OF THE $CELL ELEMENT TO BASETILE
+  //     $cell.attr('class', 'basetile');
+  //     // ADD A CLASS OF A RANDOM FRUIT TO THE EMPTY CELL
+  //     $emptyCell.addClass($cell.data('fruit'));
+  //     // RANDOMLY ADDING A VALUE OF A NEW FRUIT TO EMPTY CELL
+  //     // $emptyCell.data('fruit', $cell.data('fruit'));
+  //     console.log(`moving ${$cell.data('fruit')}(#cell_${x}_${j}) into #cell_${(x+1)}_${j}`);
+  //   }
   // }
 
   // ------------LOOP THAT RANDOMLY GENERATES A NEW FRUIT FOR SELECION-----------
 
   (function loop() {
-    var rand = Math.round(Math.random() * 9000)+6000;
+    var rand = Math.round(Math.random() * 5000)+2000;
     setTimeout(function() {
       newFruitSpeechBubble();
       loop();
@@ -200,7 +176,6 @@ $(function(){
   var $fruitSelected = $ground[$lineIndex][$cellIndex];
   var $speechBubbleFruit = $('.fruitSpeech');
   $speechBubbleFruit.addClass(fruits[$fruitSelected]);
-
 
   function newFruitSpeechBubble() {
     $speechBubbleFruit.removeClass(fruits[$fruitSelected]);
@@ -219,30 +194,36 @@ $(function(){
   $(document).ready(function () {
     setTimeout(function(){
       $('#ready').fadeIn(100);
-    }, 100);
+    }, 1000);
     setTimeout(function(){
       $('#ready').fadeOut(100);
-    }, 200);
+    }, 2000);
     setTimeout(function(){
       $('#set').fadeIn(100);
-    }, 300);
+    }, 3000);
     setTimeout(function(){
       $('#set').fadeOut(100);
-    }, 400);
+    }, 4000);
     setTimeout(function(){
       $('#go').fadeIn(100);
-    }, 500);
+    }, 5000);
     setTimeout(function(){
       $('#go').fadeOut(100);
-    }, 600);
+    }, 6000);
     setTimeout(function(){
       $('.speechBubble').fadeIn(300);
-    }, 400);
+    }, 4000);
     setTimeout(function(){
       $('.fruitSpeech').fadeIn(100);
-    }, 500);
+    }, 5000);
+
 
     // -----------------------------STOPWATCH------------------------------------
+    var obj3 = document.createElement('audio');
+    obj3.src='./audio/failed.mp3';
+    obj3.volume=0.10;
+    obj3.autoPlay=false;
+    obj3.preLoad=true;
 
     // setTimeout(function(){
     function startTimer(duration, display) {
@@ -255,38 +236,36 @@ $(function(){
         seconds = seconds < 10 ? '0' + seconds : seconds;
 
         display.text(minutes + ':' + seconds);
-
+        if (seconds === '00' && progWidth <99 ){
+          console.log(`Player 1 scored ${progWidth*10}points in 60 seconds`);
+          obj3.play();
+          setTimeout(function(){
+            $('#gameOver').show();
+          }, 1000);
+          setTimeout(function(){
+            $('#gameOver').hide();
+          }, 7000);
+          setTimeout(function(){
+            location.reload();
+          }, 8000);
+        }
+        if (seconds === '00' && progWidth >=99){
+          setTimeout(function(){
+            $('#success').show();
+          }, 1000);
+          setTimeout(function(){
+            $('#success').hide();
+          }, 7000);
+        }
         if (--timer < 0) {
           timer = duration;
         }
       }, 1000);
     }
-
-    // jQuery(function ($) {
-    var oneMinute = 60 * 1,
+    var oneMinute = 60 * 0.99999,
       display = $('.countdown');
     startTimer(oneMinute, display);
-    // });
+
   }, 600);
-  // });
-
-  // PROGRESS BAR
-
-
-
-  // const btns = [].slice.apply(buttons);
-
-  // btns.forEach(button => {
-  //   button.addEventListener('click', updateProgress);
-  // });
-
-
-
-  // Animate starting progress on page load
-  // setTimeout(() => {
-  //   progress.classList.remove('progress-load');
-  //   progress.style.width = `${progWidth}%`;
-  //   figure.style.width = `${progWidth+1}%`;
-  // }, 100);
 
 });
