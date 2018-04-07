@@ -249,7 +249,7 @@ $(function(){
             location.reload();
           }, 8000);
         }
-        if (seconds === '00' && progWidth >=99){
+        if (progWidth >=99){
           setTimeout(function(){
             $('#success').show();
           }, 1000);
