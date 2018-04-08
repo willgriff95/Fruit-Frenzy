@@ -4,7 +4,7 @@ $(function(){
     'cherry'];
   // VARIABLES
   var $ground = createGround(8, 9);
-  var $mapWrap = $('#board');
+  var $mapWrap = $('.center');
   let progWidth = 0;
   let progWidth2 = 0;
   var $result = [];
@@ -13,6 +13,7 @@ $(function(){
   var alreadyPlayed = false;
   var alreadyPlayed2 = false;
 
+  // console.log($ground[0][2]);
   // ------------------------------AUDIO--------------------------------------
 
   // PLAY AUDIO CLIP
@@ -32,15 +33,13 @@ $(function(){
 
   function loop() {
     if ( $('.basetile').hasClass(fruits[$fruitSelected]) !== $('.fruitSpeech').hasClass(fruits[$fruitSelected])){
-
       // var rand = Math.round(Math.random() * 5000)+2000;
-      console.log('hello');
       newFruitSpeechBubble();
     } else {
       return;
     }
   }
-  // 
+  //
   // console.log($('div#board > div.bastile').hasClass(fruits[$fruitSelected]));
   // console.log($('#board > .fruitSpeech').hasClass(fruits[$fruitSelected]));
   // $('div#board > div.basetile').css('background-color', '#339900');
@@ -186,11 +185,12 @@ $(function(){
           $('#success').hide();
         }, 700);
       }
-
-
       // -----------------------------PLAYER 2-----------------------------------
       else if ($elem.hasClass(fruits[$fruitSelected]) === $('.fruitSpeech').hasClass(fruits[$fruitSelected]) && alreadyPlayed2 === false){
         obj.play();
+        setTimeout(function(){
+          startStopwatch();
+        }, 5000);
         // console.log(progWidth2);
 
         // ------WHEN CLICKED GIVE THE ELEMENT THE CLASS OF BASETILE ONLY--------
@@ -269,7 +269,9 @@ $(function(){
   function newFruitSpeechBubble() {
     $('.fruitSpeech').removeClass(fruits[$fruitSelected]);
     $lineIndex = Math.floor(Math.random() * (8 - 0 + 1)) + 0;
+    console.log($lineIndex);
     $cellIndex = Math.floor(Math.random() * (9 - 0 + 1)) + 0;
+    console.log($cellIndex);
     $fruitSelected = $ground[$lineIndex][$cellIndex];
     $('.fruitSpeech').addClass(fruits[$fruitSelected]);
     console.log(`the fruit that you have to collect is ${fruits[$fruitSelected]}`);
@@ -304,8 +306,7 @@ $(function(){
     }, 500);
 
     // -----------------------------STOPWATCH------------------------------------
-
-    setTimeout(function(){
+    function startStopwatch(){
       function startTimer(duration, display) {
         var timer = duration, minutes, seconds;
         alreadyPlayed = false;
@@ -323,8 +324,9 @@ $(function(){
           obj3.volume=0.10;
           obj3.autoPlay=false;
           obj3.preLoad=true;
-
-
+          if (seconds === '00'){
+            return false;
+          }
           if (seconds === '00' && progWidth < 99 && alreadyPlayed === false){
             obj3.play();
             setTimeout(function(){
@@ -345,7 +347,12 @@ $(function(){
       var oneMinute = 60 * 0.99999,
         display = $('.countdown');
       startTimer(oneMinute, display);
+    }
+    setTimeout(function(){
+      startStopwatch();
     }, 5000);
+
+
   }, 1000);
 
 });
