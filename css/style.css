@@ -351,3 +351,25 @@ background-repeat: no-repeat;
 .progress-load {
   width: 0%;
 }
+
+.progress-bar2 {
+  top: 73.9%;
+  left: 18%;
+  position: relative;
+  width: 63.8%;
+  height: 5.5%;
+  border: 1px solid brown;
+  border-radius: 5px;
+}
+
+.progress2 {
+  height: 100%;
+  border-radius: 5px;
+  background: #ffcc00;
+  -webkit-transition: width .8s;
+  transition: width .8s;
+}
+
+.progress-load2 {
+  width: 0%;
+}
