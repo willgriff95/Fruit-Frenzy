@@ -28,6 +28,24 @@ $(function(){
   obj2.autoPlay=false;
   obj2.preLoad=true;
 
+  // ------------LOOP THAT RANDOMLY GENERATES A NEW FRUIT FOR SELECION-----------
+
+  function loop() {
+    if ( $('.basetile').hasClass(fruits[$fruitSelected]) !== $('.fruitSpeech').hasClass(fruits[$fruitSelected])){
+
+      // var rand = Math.round(Math.random() * 5000)+2000;
+      console.log('hello');
+      newFruitSpeechBubble();
+    } else {
+      return;
+    }
+  }
+  // 
+  // console.log($('div#board > div.bastile').hasClass(fruits[$fruitSelected]));
+  // console.log($('#board > .fruitSpeech').hasClass(fruits[$fruitSelected]));
+  // $('div#board > div.basetile').css('background-color', '#339900');
+
+
   // --------------------GENERATING THE NUMBERS FOR THE ARRAY--------------------
 
   function createGround(height, width){
@@ -122,9 +140,13 @@ $(function(){
         }, 0);
         setTimeout(function(){
           $('#plus10').hide();
-        }, 100);
+        }, 100)
+        loop();
+
+
       } else if ($elem.hasClass(fruits[$fruitSelected]) !== $('.fruitSpeech').hasClass(fruits[$fruitSelected]) && progWidth <= 99 && alreadyPlayed === false) {
         obj2.play();
+
         // -------------------DECREASE THE PROGRESSBAR WIDTH---------------------
         progWidth -= 3;
         // if (progWidth > 100) return false;
@@ -169,7 +191,7 @@ $(function(){
       // -----------------------------PLAYER 2-----------------------------------
       else if ($elem.hasClass(fruits[$fruitSelected]) === $('.fruitSpeech').hasClass(fruits[$fruitSelected]) && alreadyPlayed2 === false){
         obj.play();
-        console.log(progWidth2);
+        // console.log(progWidth2);
 
         // ------WHEN CLICKED GIVE THE ELEMENT THE CLASS OF BASETILE ONLY--------
         $(this).attr('class', 'basetile').data('fruit', null);
@@ -211,6 +233,7 @@ $(function(){
         setTimeout(function(){
           $('#plus10').hide();
         }, 100);
+        loop();
 
       } else if ($elem.hasClass(fruits[$fruitSelected]) !== $('.fruitSpeech').hasClass(fruits[$fruitSelected]) && alreadyPlayed2 === false){
         // ---------------ANIMATIONS FOR INCORRECT FRUIT SELECTED----------------
@@ -233,20 +256,7 @@ $(function(){
     });
   }
 
-  // ------------LOOP THAT RANDOMLY GENERATES A NEW FRUIT FOR SELECION-----------
 
-  function loop() {
-    if ( $('div#board > div.bastile').hasClass(fruits[$fruitSelected]) !== $('.fruitSpeech').hasClass(fruits[$fruitSelected])){
-      // var rand = Math.round(Math.random() * 5000)+2000;
-      newFruitSpeechBubble();
-      loop();
-    } else if ( $('div#board > div.bastile').hasClass(fruits[$fruitSelected]) === $('.fruitSpeech').hasClass(fruits[$fruitSelected])){
-      console.log('suuup');
-    }
-  }
-  console.log($('div#board > div.bastile').hasClass(fruits[$fruitSelected]));
-  console.log($('#board > .fruitSpeech').hasClass(fruits[$fruitSelected]));
-  // $('div#board > div.basetile').css('background-color', '#339900');
 
 
 
