@@ -77,7 +77,7 @@ $(function(){
     $elem.click(function(){
 
       // -----------------------------PLAYER 1-----------------------------------
-      if($elem.hasClass(fruits[$fruitSelected]) === $speechBubbleFruit.hasClass(fruits[$fruitSelected]) && progWidth <= 99 && alreadyPlayed === false){
+      if($elem.hasClass(fruits[$fruitSelected]) === $('.fruitSpeech').hasClass(fruits[$fruitSelected]) && progWidth <= 99 && alreadyPlayed === false){
         obj.play();
         // ------WHEN CLICKED GIVE THE ELEMENT THE CLASS OF BASETILE ONLY--------
         $(this).attr('class', 'basetile').data('fruit', null);
@@ -123,7 +123,7 @@ $(function(){
         setTimeout(function(){
           $('#plus10').hide();
         }, 100);
-      } else if ($elem.hasClass(fruits[$fruitSelected]) !== $speechBubbleFruit.hasClass(fruits[$fruitSelected]) && progWidth <= 99 && alreadyPlayed === false) {
+      } else if ($elem.hasClass(fruits[$fruitSelected]) !== $('.fruitSpeech').hasClass(fruits[$fruitSelected]) && progWidth <= 99 && alreadyPlayed === false) {
         obj2.play();
         // -------------------DECREASE THE PROGRESSBAR WIDTH---------------------
         progWidth -= 3;
@@ -167,7 +167,7 @@ $(function(){
 
 
       // -----------------------------PLAYER 2-----------------------------------
-      else if ($elem.hasClass(fruits[$fruitSelected]) === $speechBubbleFruit.hasClass(fruits[$fruitSelected]) && alreadyPlayed2 === false){
+      else if ($elem.hasClass(fruits[$fruitSelected]) === $('.fruitSpeech').hasClass(fruits[$fruitSelected]) && alreadyPlayed2 === false){
         obj.play();
         console.log(progWidth2);
 
@@ -212,7 +212,7 @@ $(function(){
           $('#plus10').hide();
         }, 100);
 
-      } else if ($elem.hasClass(fruits[$fruitSelected]) !== $speechBubbleFruit.hasClass(fruits[$fruitSelected]) && alreadyPlayed2 === false){
+      } else if ($elem.hasClass(fruits[$fruitSelected]) !== $('.fruitSpeech').hasClass(fruits[$fruitSelected]) && alreadyPlayed2 === false){
         // ---------------ANIMATIONS FOR INCORRECT FRUIT SELECTED----------------
         progWidth2 -= 3;
         if (progWidth2 > 100) return false;
@@ -236,15 +236,17 @@ $(function(){
   // ------------LOOP THAT RANDOMLY GENERATES A NEW FRUIT FOR SELECION-----------
 
   function loop() {
-    if ( $('div#board > div') !== $speechBubbleFruit.hasClass(fruits[$fruitSelected])){
+    if ( $('div#board > div.bastile').hasClass(fruits[$fruitSelected]) !== $('.fruitSpeech').hasClass(fruits[$fruitSelected])){
       // var rand = Math.round(Math.random() * 5000)+2000;
       newFruitSpeechBubble();
       loop();
-    } else if ( $('div#board > div') === $speechBubbleFruit.hasClass(fruits[$fruitSelected])){
+    } else if ( $('div#board > div.bastile').hasClass(fruits[$fruitSelected]) === $('.fruitSpeech').hasClass(fruits[$fruitSelected])){
       console.log('suuup');
     }
   }
-  loop();
+  console.log($('div#board > div.bastile').hasClass(fruits[$fruitSelected]));
+  console.log($('#board > .fruitSpeech').hasClass(fruits[$fruitSelected]));
+  // $('div#board > div.basetile').css('background-color', '#339900');
 
 
 
@@ -252,16 +254,14 @@ $(function(){
   var $lineIndex = Math.floor(Math.random() * (8 - 0 + 1)) + 0;
   var $cellIndex = Math.floor(Math.random() * (9 - 0 + 1)) + 0;
   var $fruitSelected = $ground[$lineIndex][$cellIndex];
-  var $speechBubbleFruit = $('.fruitSpeech');
-  $speechBubbleFruit.addClass(fruits[$fruitSelected]);
+  $('.fruitSpeech').addClass(fruits[$fruitSelected]);
 
   function newFruitSpeechBubble() {
-    $speechBubbleFruit.removeClass(fruits[$fruitSelected]);
+    $('.fruitSpeech').removeClass(fruits[$fruitSelected]);
     $lineIndex = Math.floor(Math.random() * (8 - 0 + 1)) + 0;
     $cellIndex = Math.floor(Math.random() * (9 - 0 + 1)) + 0;
     $fruitSelected = $ground[$lineIndex][$cellIndex];
-    $speechBubbleFruit = $('.fruitSpeech');
-    $speechBubbleFruit.addClass(fruits[$fruitSelected]);
+    $('.fruitSpeech').addClass(fruits[$fruitSelected]);
     console.log(`the fruit that you have to collect is ${fruits[$fruitSelected]}`);
   }
 
