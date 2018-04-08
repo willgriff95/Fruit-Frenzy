@@ -3,7 +3,7 @@ $(function(){
   const fruits =  ['banana', 'grapes', 'pear', 'peach', 'lemon', 'greenApple', 'redApple', 'orange', 'strawberry', 'raspberry', 'plumb', 'watermelon', 'pineapple', 'blueberry',
     'cherry'];
   // VARIABLES
-  var $ground = createGround(9, 11);
+  var $ground = createGround(11, 9);
   var $mapWrap = $('.center');
   let progWidth = 0;
   let progWidth2 = 0;
