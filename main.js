@@ -351,7 +351,7 @@ $(function(){
     setTimeout(function(){
       startStopwatch();
     }, 5000);
-
+// ALL WORKING
 
   }, 1000);
 
