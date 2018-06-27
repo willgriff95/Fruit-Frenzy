@@ -1,4 +1,23 @@
-
+.countdown {
+  z-index: 999;
+  position: relative;
+  top: 42%;
+  width: 40%;
+  left: 27%;
+  font-size: 1.4em;
+  color: white;
+  font-family: 'digital numbers';
+  // @media (min-width: 320px) and (max-width: 667px) {
+  //   z-index: 999;
+  //   position: relative;
+  //   top: 40%;
+  //   width: 40%;
+  //   left: 31%;
+  //   font-size: 0.9em;
+  //   color: white;
+  //   font-family: 'digital numbers';
+  // }
+}
 .stopWatch {
   position: absolute;
   z-index: 900;
@@ -21,13 +40,32 @@
     height: 153px;
   }
 }
-.countdown {
-  z-index: 999;
-  position: relative;
-  top: 42%;
-  width: 40%;
-  left: 27%;
-  font-size: 1.4em;
-  color: white;
-  font-family: 'digital numbers';
+@media only screen
+and (min-width : 375px)
+and (max-width : 667px)
+and (orientation : portrait) {
+  .stopWatch {
+      position: absolute;
+      z-index: 900;
+      bottom: 1%;
+      left: 0%;
+      background-image: url(../images/stopwatch.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 126px;
+      height: 119px;
+  }
+  .countdown {
+    z-index: 999;
+    position: relative;
+    top: 39%;
+    width: 40%;
+    left: 31%;
+    font-size: 0.7em;
+    color: white;
+    font-family: 'digital numbers';
+  }
+  .sun{
+    display: none;
+  }
 }

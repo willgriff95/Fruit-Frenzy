@@ -14,7 +14,7 @@
     #board {
       height: 55%;
       top: 25%;
-      width: 80%;
+      width: 90%;
       margin: 0 auto;
       background-color: rgba(255, 255, 255, 0.4);
       border-radius: 10px;
@@ -169,6 +169,16 @@ div.character img {
   position: absolute;
   z-index: 1;
   top: -5%; }
+  @media (min-width: 320px) and (max-width: 667px) {
+    .sun {
+      float: right;
+      width: 40%;
+      height: 10%;
+      right: 0;
+      overflow: visible;
+      position: absolute;
+      z-index: 1;
+      top: -5%; } }
 
 #plus10 {
   position: absolute;
@@ -258,17 +268,6 @@ div.character img {
   background-repeat: no-repeat;
   background-position: center; }
 
-@media (min-width: 320px) and (max-width: 667px) {
-  .board {
-    width: 250px;
-    height: 191px;
-    left: -2%;
-    top: 2%;
-    position: absolute;
-    z-index: 1000;
-    background-image: url(../images/scoreboard.svg);
-    background-repeat: no-repeat;
-    background-position: center; } }
 .scoreboard {
   position: absolute;
   top: 0%;
@@ -311,15 +310,6 @@ div.character img {
   height: 5.5%;
   border: 1px solid brown;
   border-radius: 5px; }
-  @media (min-width: 320px) and (max-width: 667px) {
-    .progress-bar {
-      top: 102px;
-      left: 28%;
-      position: relative;
-      width: 43.8%;
-      height: 6.5%;
-      border: 1px solid brown;
-      border-radius: 5px; } }
 
 .progress {
   height: 100%;
@@ -339,15 +329,6 @@ div.character img {
   height: 5.5%;
   border: 1px solid brown;
   border-radius: 5px; }
-  @media (min-width: 320px) and (max-width: 667px) {
-    .progress-bar2 {
-      top: 140px;
-      left: 27%;
-      position: relative;
-      width: 44.8%;
-      height: 5.5%;
-      border: 1px solid brown;
-      border-radius: 5px; } }
 
 .progress2 {
   height: 100%;
@@ -359,6 +340,35 @@ div.character img {
 .progress-load2 {
   width: 0%; }
 
+@media only screen and (min-width: 375px) and (max-width: 667px) and (orientation: portrait) {
+  .board {
+    width: 166px;
+    height: 134px;
+    left: -2%;
+    top: 2%;
+    position: absolute;
+    z-index: 1000;
+    background-image: url(../images/scoreboard.svg);
+    background-repeat: no-repeat;
+    background-position: center; }
+
+  .progress-bar {
+    top: 71px;
+    left: 27%;
+    position: relative;
+    width: 45.8%;
+    height: 6.5%;
+    border: 1px solid brown;
+    border-radius: 2px; }
+
+  .progress-bar2 {
+    top: 97px;
+    left: 27%;
+    position: relative;
+    width: 45.8%;
+    height: 6.5%;
+    border: 1px solid brown;
+    border-radius: 2px; } }
 .speechBubble {
   position: absolute;
   height: 30%;
@@ -400,6 +410,39 @@ div.character img {
     width: 100px; }
   100% {
     width: 90px; } }
+@media only screen and (min-width: 375px) and (max-width: 667px) and (orientation: portrait) {
+  .speechBubble {
+    position: absolute;
+    height: 11%;
+    width: 16%;
+    bottom: 61px;
+    right: 2%;
+    z-index: 500;
+    display: none;
+    background-image: url("../images/speech bubble.svg");
+    background-position: center;
+    background-repeat: no-repeat; }
+
+  .fruitSpeech {
+    position: relative;
+    width: 100%;
+    height: 50%;
+    top: 15%;
+    right: 20px;
+    margin: 0 auto;
+    z-index: 1000;
+    animation: pulse 2s linear infinite;
+    display: none; } }
+.countdown {
+  z-index: 999;
+  position: relative;
+  top: 42%;
+  width: 40%;
+  left: 27%;
+  font-size: 1.4em;
+  color: white;
+  font-family: 'digital numbers'; }
+
 .stopWatch {
   position: absolute;
   z-index: 900;
@@ -422,18 +465,32 @@ div.character img {
       width: 162px;
       height: 153px; } }
 
-.countdown {
-  z-index: 999;
-  position: relative;
-  top: 42%;
-  width: 40%;
-  left: 27%;
-  font-size: 1.4em;
-  color: white;
-  font-family: 'digital numbers'; }
+@media only screen and (min-width: 375px) and (max-width: 667px) and (orientation: portrait) {
+  .stopWatch {
+    position: absolute;
+    z-index: 900;
+    bottom: 1%;
+    left: 0%;
+    background-image: url(../images/stopwatch.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 126px;
+    height: 119px; }
 
+  .countdown {
+    z-index: 999;
+    position: relative;
+    top: 39%;
+    width: 40%;
+    left: 31%;
+    font-size: 0.7em;
+    color: white;
+    font-family: 'digital numbers'; }
+
+  .sun {
+    display: none; } }
 body {
-  height: 100px;
+  height: 100vh;
   /* width: 100%; */
   /* position: static; */
   background-image: url(../images/sky.svg);

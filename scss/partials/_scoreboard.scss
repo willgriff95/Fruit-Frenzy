@@ -12,19 +12,19 @@
 }
 
 
-@media (min-width: 320px) and (max-width: 667px) {
-  .board {
-    width: 250px;
-    height: 191px;
-    left: -2%;
-    top: 2%;
-    position: absolute;
-    z-index: 1000;
-    background-image: url(../images/scoreboard.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-}
+// @media (min-width: 320px) and (max-width: 667px) {
+//   .board {
+//     width: 250px;
+//     height: 191px;
+//     left: -2%;
+//     top: 2%;
+//     position: absolute;
+//     z-index: 1000;
+//     background-image: url(../images/scoreboard.svg);
+//     background-repeat: no-repeat;
+//     background-position: center;
+//   }
+// }
 .scoreboard {
   position: absolute;
   top: 0%;
@@ -72,15 +72,15 @@
   height: 5.5%;
   border: 1px solid brown;
   border-radius: 5px;
-  @media (min-width: 320px) and (max-width: 667px) {
-    top: 102px;
-    left: 28%;
-    position: relative;
-    width: 43.8%;
-    height: 6.5%;
-    border: 1px solid brown;
-    border-radius: 5px;
-  }
+  // @media (min-width: 320px) and (max-width: 667px) {
+  //   top: 102px;
+  //   left: 28%;
+  //   position: relative;
+  //   width: 43.8%;
+  //   height: 6.5%;
+  //   border: 1px solid brown;
+  //   border-radius: 5px;
+  // }
 }
 
 
@@ -105,15 +105,15 @@
   height: 5.5%;
   border: 1px solid brown;
   border-radius: 5px;
-  @media (min-width: 320px) and (max-width: 667px) {
-    top: 140px;
-    left: 27%;
-    position: relative;
-    width: 44.8%;
-    height: 5.5%;
-    border: 1px solid brown;
-    border-radius: 5px;
-  }
+  // @media (min-width: 320px) and (max-width: 667px) {
+  //   top: 140px;
+  //   left: 27%;
+  //   position: relative;
+  //   width: 44.8%;
+  //   height: 5.5%;
+  //   border: 1px solid brown;
+  //   border-radius: 5px;
+  // }
 }
 
 .progress2 {
@@ -126,4 +126,38 @@
 
 .progress-load2 {
   width: 0%;
+}
+@media only screen
+and (min-width : 375px)
+and (max-width : 667px)
+and (orientation : portrait) {
+  .board {
+      width: 166px;
+      height: 134px;
+      left: -2%;
+      top: 2%;
+      position: absolute;
+      z-index: 1000;
+      background-image: url(../images/scoreboard.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+  .progress-bar {
+    top: 71px;
+    left: 27%;
+    position: relative;
+    width: 45.8%;
+    height: 6.5%;
+    border: 1px solid brown;
+    border-radius: 2px;
+  }
+  .progress-bar2 {
+    top: 97px;
+    left: 27%;
+    position: relative;
+    width: 45.8%;
+    height: 6.5%;
+    border: 1px solid brown;
+    border-radius: 2px;
+  }
 }

@@ -37,4 +37,14 @@
     position: absolute;
     z-index: 1;
     top: -5%;
+    @media (min-width: 320px) and (max-width: 667px) {
+    float: right;
+    width: 40%;
+    height: 10%;
+    right: 0;
+    overflow: visible;
+    position: absolute;
+    z-index: 1;
+    top: -5%;
+}
 }
