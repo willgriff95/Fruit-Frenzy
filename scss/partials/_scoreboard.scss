@@ -132,14 +132,14 @@ and (min-width : 375px)
 and (max-width : 667px)
 and (orientation : portrait) {
   .board {
-      height: 21% !important;
-      left: 5% !important;
-      top: 2% !important;
+    height: 21% !important;
+    left: 5% !important;
+    top: 2% !important;
   }
   .progress-bar {
-      top: 52% !important;
-      left: 19% !important;
-      width: 60.8% !important;
+    top: 52% !important;
+    left: 19% !important;
+    width: 60.8% !important;
 
   }
   .progress-bar2 {
@@ -148,6 +148,8 @@ and (orientation : portrait) {
     width: 60.8% !important;
   }
 }
+
+
 
 @media only screen
 and (max-width : 992px){
@@ -166,21 +168,45 @@ and (max-width : 992px){
 @media only screen
 and (max-width : 992px){
   .progress-bar {
-      top: 54%;
-      left: 28%;
-      position: relative;
-      width: 43.8%;
-      height: 5.5%;
-      border: 1px solid brown;
-      border-radius: 2px;
+    top: 54%;
+    left: 28%;
+    position: relative;
+    width: 43.8%;
+    height: 5.5%;
+    border: 1px solid brown;
+    border-radius: 2px;
   }
   .progress-bar2 {
-      top: 74%;
-      left: 28%;
-      position: relative;
-      width: 43.8%;
-      height: 5.5%;
-      border: 1px solid brown;
-      border-radius: 2px;
+    top: 74%;
+    left: 28%;
+    position: relative;
+    width: 43.8%;
+    height: 5.5%;
+    border: 1px solid brown;
+    border-radius: 2px;
+  }
+}
+
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait) {
+  .board {
+    width: 20%;
+    height: 20%;
+    left: 3%;
+    top: 0%;
+  }
+  .progress-bar{
+    top: 53%;
+    left: 18%;
+    position: relative;
+    width: 61.8%;
+  }
+  .progress-bar2{
+    top: 69%;
+    left: 18%;
+    position: relative;
+    width: 61.8%;
   }
 }

@@ -25,6 +25,20 @@
     left: 0px;
   }
 }
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait) {
+  #board {
+      height: 60%;
+      top: 19%;
+      width: 77%;
+      right: 22px;
+      left: 0px;
+  }
+}
+
+
 
 .center {
   margin-top: 2%;

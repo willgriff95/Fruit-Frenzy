@@ -45,15 +45,15 @@ and (min-width : 375px)
 and (max-width : 667px)
 and (orientation : portrait) {
   .stopWatch {
-      position: absolute;
-      z-index: 900;
-      bottom: 1%;
-      left: 0%;
-      background-image: url(../images/stopwatch.svg);
-      background-repeat: no-repeat;
-      background-position: center;
-      width: 126px;
-      height: 119px;
+    position: absolute;
+    z-index: 900;
+    bottom: 1%;
+    left: 0%;
+    background-image: url(../images/stopwatch.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 126px;
+    height: 119px;
   }
   .countdown {
     z-index: 999;
@@ -73,5 +73,23 @@ and (orientation : portrait) {
 and (max-width : 992px){
   .stopWatch {
     left: 1%;
+  }
+}
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait) {
+  .stopWatch {
+    z-index: 1038;
+    bottom: 4%;
+    left: 4%;
+    width: 163px;
+    height: 166px;
+  }
+  .countdown {
+    top: 39%;
+    width: 40%;
+    left: 30%;
+    font-size: 1em;
   }
 }

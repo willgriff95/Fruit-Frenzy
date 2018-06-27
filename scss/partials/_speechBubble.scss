@@ -76,3 +76,24 @@ and (orientation : portrait) {
       display: none;
   }
 }
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait) {
+  .fruitSpeech {
+      position: relative;
+      /* width: 33%; */
+      height: 52%;
+      top: 12%;
+  }
+.speechBubble {
+    height: 11% !important;
+    /* width: 13%; */
+    bottom: 13% !important;
+    right: 6% !important;
+    z-index: 1000 !important;
+}
+.center{
+      margin-top: 4%;
+}
+}
