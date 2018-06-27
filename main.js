@@ -13,7 +13,7 @@ $(function(){
   var alreadyPlayed = false;
   var alreadyPlayed2 = false;
   var timerPlayed = false;
-  var oneMinute = 60 * 0.999, display = $('.countdown');
+  var oneMinute = 60 * 0.999;
   var $lineIndex = Math.floor(Math.random() * (8 - 0 + 1)) + 0;
   var $cellIndex = Math.floor(Math.random() * (9 - 0 + 1)) + 0;
   var $fruitSelected = $ground[$lineIndex][$cellIndex];
@@ -80,16 +80,18 @@ $(function(){
       $('#minus10').hide();
     }, 100);
   }
-
+  var display = $('div.countdown');
   // -----------------------------STOPWATCH------------------------------------
   function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
+
 
     setInterval(function () {
       minutes = parseInt(timer / 60, 10);
       seconds = parseInt(timer % 60, 10);
       minutes = minutes < 10 ? '0' + minutes : minutes;
       seconds = seconds < 10 ? '0' + seconds : seconds;
+      // console.log($('.countdown'));
       display.text(minutes + ':' + seconds);
 
       // PLAY AUDIO CLIP
@@ -218,7 +220,7 @@ $(function(){
         const columnDataReversed = columnData.reverse();
         columnDataReversed.unshift(null);
         $(columnDataReversed).each(function(index, fruit){
-          console.log(index, fruit);
+          // console.log(index, fruit);
           $(`#cell_${(index)}_${j}`).data('fruit', fruit);
           $(`#cell_${(index)}_${j}`).attr('class', `basetile ${fruit}`);
         });
@@ -254,13 +256,13 @@ $(function(){
         minus10Graphic();
 
       } else if (progWidth >= 99 && alreadyPlayed === false){
-        console.log(`Player 1 scored ${progWidth}points in 60 seconds`);
+        // console.log(`Player 1 scored ${progWidth}points in 60 seconds`);
         alreadyPlayed = true;
         success();
         // -----------------------------PLAYER 2-----------------------------------
 
       } else if (progWidth2 >= 99 && alreadyPlayed2 === false){
-        console.log(`Player 2 scored ${progWidth2}points in 60 seconds`);
+        // console.log(`Player 2 scored ${progWidth2}points in 60 seconds`);
         alreadyPlayed2 = true;
         success();
 
@@ -281,7 +283,7 @@ $(function(){
         columnDataReversed.unshift(null);
 
         $(columnDataReversed).each(function(index, fruit){
-          console.log(index, fruit);
+          // console.log(index, fruit);
           $(`#cell_${(index)}_${j}`).data('fruit', fruit);
           $(`#cell_${(index)}_${j}`).attr('class', `basetile ${fruit}`);
         });

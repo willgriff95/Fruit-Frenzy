@@ -342,31 +342,46 @@ div.character img {
 
 @media only screen and (min-width: 375px) and (max-width: 667px) and (orientation: portrait) {
   .board {
-    width: 166px;
-    height: 134px;
-    left: -2%;
+    height: 21% !important;
+    left: 5% !important;
+    top: 2% !important; }
+
+  .progress-bar {
+    top: 52% !important;
+    left: 19% !important;
+    width: 60.8% !important; }
+
+  .progress-bar2 {
+    top: 69% !important;
+    left: 19% !important;
+    width: 60.8% !important; } }
+@media only screen and (max-width: 992px) {
+  .board {
+    width: 30%;
+    height: 30%;
+    left: -1%;
     top: 2%;
     position: absolute;
     z-index: 1000;
     background-image: url(../images/scoreboard.svg);
     background-repeat: no-repeat;
-    background-position: center; }
-
+    background-position: center; } }
+@media only screen and (max-width: 992px) {
   .progress-bar {
-    top: 71px;
-    left: 27%;
+    top: 54%;
+    left: 28%;
     position: relative;
-    width: 45.8%;
-    height: 6.5%;
+    width: 43.8%;
+    height: 5.5%;
     border: 1px solid brown;
     border-radius: 2px; }
 
   .progress-bar2 {
-    top: 97px;
-    left: 27%;
+    top: 74%;
+    left: 28%;
     position: relative;
-    width: 45.8%;
-    height: 6.5%;
+    width: 43.8%;
+    height: 5.5%;
     border: 1px solid brown;
     border-radius: 2px; } }
 .speechBubble {
@@ -428,10 +443,10 @@ div.character img {
     width: 100%;
     height: 50%;
     top: 15%;
-    right: 20px;
+    right: 1px;
     margin: 0 auto;
     z-index: 1000;
-    animation: pulse 2s linear infinite;
+    animation: none !important;
     display: none; } }
 .countdown {
   z-index: 999;
@@ -489,6 +504,9 @@ div.character img {
 
   .sun {
     display: none; } }
+@media only screen and (max-width: 992px) {
+  .stopWatch {
+    left: 1%; } }
 body {
   height: 100vh;
   /* width: 100%; */
