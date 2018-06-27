@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Digital-Numbers';
+  src: url("../scss/fonts/Digital-Numbers.ttf.woff") format("woff"), url("../scss/fonts/Digital-Numbers.ttf.svg#Digital-Numbers") format("svg"), url("../scss/fonts/Digital-Numbers.ttf.eot"), url("../scss/fonts/Digital-Numbers.ttf.eot?#iefix") format("embedded-opentype");
+  font-weight: normal;
+  font-style: normal; }
 #board {
   height: 75%;
   top: 10%;
@@ -561,11 +566,6 @@ div.character img {
     width: 40%;
     left: 30%;
     font-size: 1em; } }
-@font-face {
-  font-family: 'Digital-Numbers';
-  src: url("./fonts/Digital-Numbers.ttf.woff") format("woff"), url("./fonts/Digital-Numbers.ttf.svg#Digital-Numbers") format("svg"), url("./fonts/Digital-Numbers.ttf.eot"), url("./fonts/Digital-Numbers.ttf.eot?#iefix") format("embedded-opentype");
-  font-weight: normal;
-  font-style: normal; }
 body {
   height: 100vh;
   /* width: 100%; */

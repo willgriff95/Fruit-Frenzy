@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'Digital-Numbers';
+    src:url('../scss/fonts/Digital-Numbers.ttf.woff') format('woff'),
+        url('../scss/fonts/Digital-Numbers.ttf.svg#Digital-Numbers') format('svg'),
+        url('../scss/fonts/Digital-Numbers.ttf.eot'),
+        url('../scss/fonts/Digital-Numbers.ttf.eot?#iefix') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+}
 @import 'partials/board';
 @import 'partials/character';
 @import 'partials/environment';
@@ -5,15 +14,6 @@
 @import 'partials/scoreboard';
 @import 'partials/speechBubble';
 @import 'partials/stopwatch';
-@font-face {
-    font-family: 'Digital-Numbers';
-    src:url('./fonts/Digital-Numbers.ttf.woff') format('woff'),
-        url('./fonts/Digital-Numbers.ttf.svg#Digital-Numbers') format('svg'),
-        url('./fonts/Digital-Numbers.ttf.eot'),
-        url('./fonts/Digital-Numbers.ttf.eot?#iefix') format('embedded-opentype');
-    font-weight: normal;
-    font-style: normal;
-}
 
 body {
   height: 100vh;
