@@ -1,0 +1,21 @@
+
+div.character img {
+  float: right;
+  width: 10%;
+  overflow: visible;
+  position: absolute;
+  z-index: 300;
+  bottom: 0;
+  right: 8%;
+  display: inline-block;
+  @media (min-width: 320px) and (max-width: 667px) {
+    float: right;
+    width: 10%;
+    overflow: visible;
+    position: absolute;
+    z-index: 300;
+    bottom: 0;
+    right: 1%;
+    display: inline-block;
+  }
+}

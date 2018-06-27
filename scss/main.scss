@@ -1,0 +1,17 @@
+@import 'partials/board';
+@import 'partials/character';
+@import 'partials/environment';
+@import 'partials/response';
+@import 'partials/scoreboard';
+@import 'partials/speechBubble';
+@import 'partials/stopwatch';
+
+body {
+  height: 100px;
+  /* width: 100%; */
+  /* position: static; */
+  background-image: url(../images/sky.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}

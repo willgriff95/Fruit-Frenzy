@@ -1,0 +1,40 @@
+
+.foreGround {
+  float: right;
+  width: 100%;
+  overflow: visible;
+  position: absolute;
+  z-index: 300;
+  bottom: 0;
+
+}
+.midGround {
+  float: left;
+  width: 100%;
+  overflow: visible;
+  position: absolute;
+  z-index: 200;
+  bottom: 0;
+}
+.backGround {
+  float: right;
+  width: 100%;
+  overflow: visible;
+  position: absolute;
+  z-index: 100;
+  bottom: 0;
+
+}
+
+
+
+.sun {
+    float: right;
+    width: 40%;
+    height: 50%;
+    right: 0;
+    overflow: visible;
+    position: absolute;
+    z-index: 1;
+    top: -5%;
+}

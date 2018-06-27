@@ -1,0 +1,129 @@
+
+.board {
+  width: 250px;
+  height: 300px;
+  left: 3%;
+  top: 2%;
+  position: absolute;
+  z-index: 1000;
+  background-image: url(../images/scoreboard.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+@media (min-width: 320px) and (max-width: 667px) {
+  .board {
+    width: 250px;
+    height: 191px;
+    left: -2%;
+    top: 2%;
+    position: absolute;
+    z-index: 1000;
+    background-image: url(../images/scoreboard.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+.scoreboard {
+  position: absolute;
+  top: 0%;
+  width: 25%;
+  height: 55%;
+  left: 0%;
+  font-size: 25px;
+  color: white;
+  font-family: 'digital numbers';
+}
+
+.player1 {
+  width: 44%;
+  border-radius: 5px;
+  top: 52.5%;
+  left: 27%;
+  height: 6%;
+  position: relative;
+  z-index: 989;
+  border: solid brown 1px;
+  background-color: lightblue;
+}
+
+.progressBar{
+  border: solid brown 1px;
+  background-color: lightblue;
+
+}
+.player2 {
+  width: 0px;
+  top: 40%;
+  left: 5%;
+  height: 6%;
+  position: absolute;
+  z-index: 989;
+  background-color: #feb501;
+}
+
+
+.progress-bar {
+  top: 160px;
+  left: 18%;
+  position: relative;
+  width: 63.8%;
+  height: 5.5%;
+  border: 1px solid brown;
+  border-radius: 5px;
+  @media (min-width: 320px) and (max-width: 667px) {
+    top: 102px;
+    left: 28%;
+    position: relative;
+    width: 43.8%;
+    height: 6.5%;
+    border: 1px solid brown;
+    border-radius: 5px;
+  }
+}
+
+
+
+.progress {
+  height: 100%;
+  border-radius: 5px;
+  background: #feb501;
+  -webkit-transition: width .8s;
+  transition: width .8s;
+}
+
+.progress-load {
+  width: 0%;
+}
+
+.progress-bar2 {
+  top: 215px;
+  left: 18%;
+  position: relative;
+  width: 63.8%;
+  height: 5.5%;
+  border: 1px solid brown;
+  border-radius: 5px;
+  @media (min-width: 320px) and (max-width: 667px) {
+    top: 140px;
+    left: 27%;
+    position: relative;
+    width: 44.8%;
+    height: 5.5%;
+    border: 1px solid brown;
+    border-radius: 5px;
+  }
+}
+
+.progress2 {
+  height: 100%;
+  border-radius: 5px;
+  background: #ffcc00;
+  -webkit-transition: width .8s;
+  transition: width .8s;
+}
+
+.progress-load2 {
+  width: 0%;
+}

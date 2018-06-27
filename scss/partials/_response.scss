@@ -1,0 +1,78 @@
+
+#plus10 {
+  position:absolute;
+  z-index: 1000;
+  top:43%;
+  left:39%;
+  height:90px;
+  background-image: url('../images/plus10.svg');
+  background-repeat: no-repeat;
+  width:100%;
+  display: none;
+}
+#minus10 {
+  position:absolute;
+  z-index: 1000;
+  top:43%;
+  left:39%;
+  height:90px;
+  background-image: url('../images/minus10.svg');
+  background-repeat: no-repeat;
+  width:100%;
+  display: none;
+}
+#ready {
+  position:absolute;
+  z-index: 999;
+  top:43%;
+  left:39%;
+  height:90px;
+  background-image: url('../images/ready.svg');
+  background-repeat: no-repeat;
+  width:100%;
+  display: none;
+}
+#set {
+  position:absolute;
+  z-index: 999;
+  top:43%;
+  left:39%;
+  height:90px;
+  background-image: url('../images/set.svg');
+  background-repeat: no-repeat;
+  width:100%;
+  display: none;
+}
+#go {
+  position:absolute;
+  z-index: 999;
+  top:43%;
+  left:39%;
+  height:90px;
+  background-image: url('../images/go.svg');
+  background-repeat: no-repeat;
+  width:100%;
+  display: none;
+}
+#gameOver {
+  position: absolute;
+  z-index: 999;
+  top: 43%;
+  left: 29%;
+  height: 10%;
+  background-image: url(../images/gameOver.svg);
+  background-repeat: no-repeat;
+  width: 45%;
+  display: none;
+}
+#success {
+  position: absolute;
+  z-index: 999;
+  top: 43%;
+  left: 34%;
+  height: 10%;
+  background-image: url(../images/success.svg);
+  background-repeat: no-repeat;
+  width: 45%;
+  display: none;
+}
