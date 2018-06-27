@@ -5,6 +5,15 @@
 @import 'partials/scoreboard';
 @import 'partials/speechBubble';
 @import 'partials/stopwatch';
+@font-face {
+    font-family: 'Digital-Numbers';
+    src:url('Digital-Numbers.ttf.woff') format('woff'),
+        url('Digital-Numbers.ttf.svg#Digital-Numbers') format('svg'),
+        url('Digital-Numbers.ttf.eot'),
+        url('Digital-Numbers.ttf.eot?#iefix') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+}
 
 body {
   height: 100vh;

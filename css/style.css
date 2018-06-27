@@ -283,7 +283,7 @@ div.character img {
   left: 0%;
   font-size: 25px;
   color: white;
-  font-family: 'digital numbers'; }
+  font-family: 'Digital-Numbers'; }
 
 .player1 {
   width: 44%;
@@ -497,7 +497,7 @@ div.character img {
   left: 27%;
   font-size: 1.4em;
   color: white;
-  font-family: 'digital numbers'; }
+  font-family: 'Digital-Numbers'; }
 
 .stopWatch {
   position: absolute;
@@ -541,7 +541,7 @@ div.character img {
     left: 31%;
     font-size: 0.7em;
     color: white;
-    font-family: 'digital numbers'; }
+    font-family: 'Digital-Numbers'; }
 
   .sun {
     display: none; } }
@@ -561,6 +561,11 @@ div.character img {
     width: 40%;
     left: 30%;
     font-size: 1em; } }
+@font-face {
+  font-family: 'Digital-Numbers';
+  src: url("Digital-Numbers.ttf.woff") format("woff"), url("Digital-Numbers.ttf.svg#Digital-Numbers") format("svg"), url("Digital-Numbers.ttf.eot"), url("Digital-Numbers.ttf.eot?#iefix") format("embedded-opentype");
+  font-weight: normal;
+  font-style: normal; }
 body {
   height: 100vh;
   /* width: 100%; */
