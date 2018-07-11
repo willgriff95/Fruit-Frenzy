@@ -2,9 +2,9 @@
 (GA Project 1) - Interactive game - HTML, CSS &amp; jQuery
 New
 ![Image of game](./snapshot.png)
-##Game Instructions:
+## Game Instructions:
 
-######The objective of the game is to work co-operatively with player 2. You must both collect enough points to advance to the next game by capturing as many of the fruit called by the instructor within 60 seconds. If you both successfully collect the fruit within the alloted time, then you will advance to the next game. If anyone fails, then it is GAME OVER and you must start again...
+###### The objective of the game is to work co-operatively with player 2. You must both collect enough points to advance to the next game by capturing as many of the fruit called by the instructor within 60 seconds. If you both successfully collect the fruit within the alloted time, then you will advance to the next game. If anyone fails, then it is GAME OVER and you must start again...
 
 1. When the page loads a modal pop up initiates the game starting by displaying "Ready, Set, Go!"
 2. Once "Go!", a timer of 60 seconds starts. At this moment a fruit is thought up by the instructor in the speechbubble above the instructor.
@@ -17,7 +17,7 @@ New
 9. Then it will be player two's go, if they successfully complete the challenge then you shall both advance in the next level.You can only advance with both players completing the task.
 10. If any player loses, then you must start the game again.
 
-##Technologies Used
+## Technologies Used
 * HTML 5
 * CSS 3
 * JavaScript
@@ -31,7 +31,7 @@ New
 * Adobe Photoshop
 * Adobe XD
 
-##Approach Taken
+## Approach Taken
 Initially the game was meant to have the same functionality as the popular game 'Candy Crush'.
 
 However, it evolved in to a reactions game. Partly due to the complexity required to build 'Candy Crush' being too hard for my first game but also due to the fact that I thought a co-operative reactions game would be more socially engaging and fun.
