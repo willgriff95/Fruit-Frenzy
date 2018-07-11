@@ -22,9 +22,7 @@ $(function(){
   var obj2 = document.createElement('audio');
 
 
-  setTimeout(function(){
-    startTimer();
-  }, 5000);
+
 
   function failImage(){
     setTimeout(function(){
@@ -82,43 +80,46 @@ $(function(){
   }
   var display = $('div.countdown');
   // -----------------------------STOPWATCH------------------------------------
-  function startTimer(duration, display) {
-    var timer = duration, minutes, seconds;
+
+  setTimeout(function(){
+    function startTimer(duration, display) {
+      var timer = duration, minutes, seconds;
 
 
-    setInterval(function () {
-      minutes = parseInt(timer / 60, 10);
-      seconds = parseInt(timer % 60, 10);
-      minutes = minutes < 10 ? '0' + minutes : minutes;
-      seconds = seconds < 10 ? '0' + seconds : seconds;
-      // console.log($('.countdown'));
-      display.text(minutes + ':' + seconds);
+      setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+        // console.log($('.countdown'));
+        display.text(minutes + ':' + seconds);
 
-      // PLAY AUDIO CLIP
-      timerPlayed = false;
-      if (seconds === '00'){
+        // PLAY AUDIO CLIP
         timerPlayed = false;
-        return false;
-      }
-      if(progWidth >= 99 && timerPlayed === false){
-        return false;
-      }
-      if (seconds === '00' && progWidth < 99 && timerPlayed === false){
-        setTimeout(function(){
-          $('.stopWatch').addClass('shake-hard');
-        },100);
-        setTimeout(function(){
-          $('.stopWatch').removeClass('shake-hard');
-        }, 700);
-        failSound();
-        failImage();
-      }
-      if (--timer < 0) {
-        timer = duration;
-      }
-    }, 1000);
-  }
-  startTimer(oneMinute, display);
+        if (seconds === '00'){
+          timerPlayed = false;
+          return false;
+        }
+        if(progWidth >= 99 && timerPlayed === false){
+          return false;
+        }
+        if (seconds === '00' && progWidth < 99 && timerPlayed === false){
+          setTimeout(function(){
+            $('.stopWatch').addClass('shake-hard');
+          },100);
+          setTimeout(function(){
+            $('.stopWatch').removeClass('shake-hard');
+          }, 700);
+          failSound();
+          failImage();
+        }
+        if (--timer < 0) {
+          timer = duration;
+        }
+      }, 1000);
+    }
+    startTimer(oneMinute, display);
+  }, 5000);
 
 
 
@@ -330,27 +331,27 @@ $(function(){
   $(document).ready(function () {
     setTimeout(function(){
       $('#ready').fadeIn(100);
-    }, 100);
+    }, 1000);
     setTimeout(function(){
       $('#ready').fadeOut(100);
-    }, 200);
+    }, 2000);
     setTimeout(function(){
       $('#set').fadeIn(100);
-    }, 300);
+    }, 3000);
     setTimeout(function(){
       $('#set').fadeOut(100);
-    }, 400);
+    }, 4000);
     setTimeout(function(){
       $('#go').fadeIn(100);
-    }, 500);
+    }, 5000);
     setTimeout(function(){
       $('#go').fadeOut(100);
-    }, 600);
+    }, 6000);
     setTimeout(function(){
       $('.speechBubble').fadeIn(300);
-    }, 400);
+    }, 4000);
     setTimeout(function(){
       $('.fruitSpeech').fadeIn(100);
-    }, 500);
+    }, 5000);
   }, 1000);
 });

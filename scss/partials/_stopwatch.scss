@@ -93,3 +93,14 @@ and (orientation : portrait) {
     font-size: 1em;
   }
 }
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px)
+and (orientation : landscape) {
+  .stopWatch {
+    bottom: 0%;
+    left: 0%;
+    width: 142px;
+    height: 139px;
+  }
+}

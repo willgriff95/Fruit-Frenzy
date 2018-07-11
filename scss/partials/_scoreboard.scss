@@ -10,21 +10,15 @@
   background-repeat: no-repeat;
   background-position: center;
 }
+.boardPosition {
+  width: 250px;
+  height: 300px;
+  left: 3%;
+  top: 2%;
+  position: absolute;
+  z-index: 100;
+}
 
-
-// @media (min-width: 320px) and (max-width: 667px) {
-//   .board {
-//     width: 250px;
-//     height: 191px;
-//     left: -2%;
-//     top: 2%;
-//     position: absolute;
-//     z-index: 1000;
-//     background-image: url(../images/scoreboard.svg);
-//     background-repeat: no-repeat;
-//     background-position: center;
-//   }
-// }
 .scoreboard {
   position: absolute;
   top: 0%;
@@ -72,15 +66,6 @@
   height: 5.5%;
   border: 1px solid brown;
   border-radius: 5px;
-  // @media (min-width: 320px) and (max-width: 667px) {
-  //   top: 102px;
-  //   left: 28%;
-  //   position: relative;
-  //   width: 43.8%;
-  //   height: 6.5%;
-  //   border: 1px solid brown;
-  //   border-radius: 5px;
-  // }
 }
 
 
@@ -105,15 +90,6 @@
   height: 5.5%;
   border: 1px solid brown;
   border-radius: 5px;
-  // @media (min-width: 320px) and (max-width: 667px) {
-  //   top: 140px;
-  //   left: 27%;
-  //   position: relative;
-  //   width: 44.8%;
-  //   height: 5.5%;
-  //   border: 1px solid brown;
-  //   border-radius: 5px;
-  // }
 }
 
 .progress2 {
@@ -136,6 +112,11 @@ and (orientation : portrait) {
     left: 5% !important;
     top: 2% !important;
   }
+  .boardPosition {
+    height: 21% !important;
+    left: 5% !important;
+    top: 2% !important;
+  }
   .progress-bar {
     top: 52% !important;
     left: 19% !important;
@@ -143,7 +124,7 @@ and (orientation : portrait) {
 
   }
   .progress-bar2 {
-    top: 69% !important;
+    top: 64% !important;
     left: 19% !important;
     width: 60.8% !important;
   }
@@ -164,24 +145,32 @@ and (max-width : 992px){
     background-repeat: no-repeat;
     background-position: center;
   }
-}
-@media only screen
-and (max-width : 992px){
+  .boardPosition {
+    width: 30%;
+    height: 30%;
+    left: -1%;
+    top: 2%;
+    position: absolute;
+    z-index: 100;
+    background-image: url(../images/scoreboard.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
   .progress-bar {
-    top: 54%;
+    top: 52%;
     left: 28%;
     position: relative;
     width: 43.8%;
-    height: 5.5%;
+    height: 9.5%;
     border: 1px solid brown;
     border-radius: 2px;
   }
   .progress-bar2 {
-    top: 74%;
+    top: 68%;
     left: 28%;
     position: relative;
     width: 43.8%;
-    height: 5.5%;
+    height: 9.5%;
     border: 1px solid brown;
     border-radius: 2px;
   }
@@ -192,6 +181,12 @@ and (min-device-width : 768px)
 and (max-device-width : 1024px)
 and (orientation : portrait) {
   .board {
+    width: 20%;
+    height: 20%;
+    left: 3%;
+    top: 0%;
+  }
+  .boardPosition {
     width: 20%;
     height: 20%;
     left: 3%;
@@ -208,5 +203,65 @@ and (orientation : portrait) {
     left: 18%;
     position: relative;
     width: 61.8%;
+  }
+}
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px)
+and (orientation : landscape) {
+  .board {
+    width: 23%;
+    height: 37%;
+    left: 0%;
+    top: 2%;
+  }
+  .boardPosition {
+    width: 23%;
+    height: 37%;
+    left: 0%;
+    top: 2%;
+  }
+  .progress-bar {
+      top: 51%;
+      left: 23%;
+      width: 54%;
+  }
+  .progress-bar2 {
+      top: 68%;
+      left: 23%;
+      width: 54%;
+  }
+  .countdown{
+    top: 39% !important;
+    width: 40% !important;
+    left: 29% !important;
+    font-size:  0.9em!important;
+  }
+}
+
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : landscape)
+and (-webkit-min-device-pixel-ratio: 1)  {
+  .board {
+    width: 216px;
+    height: 300px;
+    left: 4%;
+    top: 0%;
+  }
+  .boardPosition {
+    width: 216px;
+    height: 300px;
+    left: 4%;
+    top: 0%;
+  }
+  .progress-bar {
+    top: 158px;
+    left: 18%;
+  }
+  .progress-bar2{
+    top: 201px;
+    left: 18%;
   }
 }

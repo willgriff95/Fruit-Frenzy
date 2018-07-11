@@ -38,6 +38,16 @@ and (orientation : portrait) {
   }
 }
 
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px)
+and (orientation : landscape) {
+  #board {
+      height: 85%;
+      top: 8%;
+      width: 54%;
+    }
+}
 
 
 .center {

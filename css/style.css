@@ -36,6 +36,11 @@
     width: 77%;
     right: 22px;
     left: 0px; } }
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation: landscape) {
+  #board {
+    height: 85%;
+    top: 8%;
+    width: 54%; } }
 .center {
   margin-top: 2%;
   width: 100%;
@@ -148,6 +153,9 @@ div.character img {
       right: 1%;
       display: inline-block; } }
 
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation: landscape) {
+  div.character img {
+    right: 5%; } }
 .foreGround {
   float: right;
   width: 100%;
@@ -280,6 +288,14 @@ div.character img {
   background-repeat: no-repeat;
   background-position: center; }
 
+.boardPosition {
+  width: 250px;
+  height: 300px;
+  left: 3%;
+  top: 2%;
+  position: absolute;
+  z-index: 100; }
+
 .scoreboard {
   position: absolute;
   top: 0%;
@@ -358,13 +374,18 @@ div.character img {
     left: 5% !important;
     top: 2% !important; }
 
+  .boardPosition {
+    height: 21% !important;
+    left: 5% !important;
+    top: 2% !important; }
+
   .progress-bar {
     top: 52% !important;
     left: 19% !important;
     width: 60.8% !important; }
 
   .progress-bar2 {
-    top: 69% !important;
+    top: 64% !important;
     left: 19% !important;
     width: 60.8% !important; } }
 @media only screen and (max-width: 992px) {
@@ -377,27 +398,44 @@ div.character img {
     z-index: 1000;
     background-image: url(../images/scoreboard.svg);
     background-repeat: no-repeat;
-    background-position: center; } }
-@media only screen and (max-width: 992px) {
+    background-position: center; }
+
+  .boardPosition {
+    width: 30%;
+    height: 30%;
+    left: -1%;
+    top: 2%;
+    position: absolute;
+    z-index: 100;
+    background-image: url(../images/scoreboard.svg);
+    background-repeat: no-repeat;
+    background-position: center; }
+
   .progress-bar {
-    top: 54%;
+    top: 52%;
     left: 28%;
     position: relative;
     width: 43.8%;
-    height: 5.5%;
+    height: 9.5%;
     border: 1px solid brown;
     border-radius: 2px; }
 
   .progress-bar2 {
-    top: 74%;
+    top: 68%;
     left: 28%;
     position: relative;
     width: 43.8%;
-    height: 5.5%;
+    height: 9.5%;
     border: 1px solid brown;
     border-radius: 2px; } }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
   .board {
+    width: 20%;
+    height: 20%;
+    left: 3%;
+    top: 0%; }
+
+  .boardPosition {
     width: 20%;
     height: 20%;
     left: 3%;
@@ -414,6 +452,54 @@ div.character img {
     left: 18%;
     position: relative;
     width: 61.8%; } }
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation: landscape) {
+  .board {
+    width: 23%;
+    height: 37%;
+    left: 0%;
+    top: 2%; }
+
+  .boardPosition {
+    width: 23%;
+    height: 37%;
+    left: 0%;
+    top: 2%; }
+
+  .progress-bar {
+    top: 51%;
+    left: 23%;
+    width: 54%; }
+
+  .progress-bar2 {
+    top: 68%;
+    left: 23%;
+    width: 54%; }
+
+  .countdown {
+    top: 39% !important;
+    width: 40% !important;
+    left: 29% !important;
+    font-size: 0.9em !important; } }
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+  .board {
+    width: 216px;
+    height: 300px;
+    left: 4%;
+    top: 0%; }
+
+  .boardPosition {
+    width: 216px;
+    height: 300px;
+    left: 4%;
+    top: 0%; }
+
+  .progress-bar {
+    top: 158px;
+    left: 18%; }
+
+  .progress-bar2 {
+    top: 201px;
+    left: 18%; } }
 .speechBubble {
   position: absolute;
   height: 30%;
@@ -494,6 +580,19 @@ div.character img {
 
   .center {
     margin-top: 4%; } }
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation: landscape) {
+  .speechBubble {
+    height: 22%;
+    width: 14%;
+    bottom: 112px;
+    right: 6%; } }
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+  .speechBubble {
+    position: absolute;
+    height: 19%;
+    width: 11%;
+    bottom: 22%;
+    right: 11%; } }
 .countdown {
   z-index: 999;
   position: relative;
@@ -566,6 +665,12 @@ div.character img {
     width: 40%;
     left: 30%;
     font-size: 1em; } }
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation: landscape) {
+  .stopWatch {
+    bottom: 0%;
+    left: 0%;
+    width: 142px;
+    height: 139px; } }
 body {
   height: 100vh;
   /* width: 100%; */
