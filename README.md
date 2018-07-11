@@ -1,6 +1,8 @@
 # Fruit-Frenzy
+
 (GA Project 1) - Interactive game - HTML, CSS &amp; jQuery
 New
+
 ![Image of game](./snapshot.png)
 ## Game Instructions:
 
